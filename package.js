@@ -1,6 +1,7 @@
 Package.describe({
   summary: "Dribbble OAuth flow",
-  version: "1.0.0"
+  version: "1.0.0",
+  git: "https://github.com/d2tstudio/dribbbleor"
 });
 
 Package.onUse(function(api) {
