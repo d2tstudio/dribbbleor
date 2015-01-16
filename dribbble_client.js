@@ -26,7 +26,7 @@ Dribbble.requestCredential = function (options, credentialRequestCompleteCallbac
   var loginStyle = OAuth._loginStyle('dribbble', config, options);
 
   var loginUrl =
-    'https://dribbble.com/login/oauth/authorize' +
+    'https://dribbble.com/oauth/authorize' +
     '?client_id=' + config.clientId +
     '&scope=' + flatScope +
     '&redirect_uri=' + OAuth._redirectUri('dribbble', config) +

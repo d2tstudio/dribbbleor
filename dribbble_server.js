@@ -29,7 +29,7 @@ var getAccessToken = function (query) {
   var response;
   try {
     response = HTTP.post(
-      "https://dribbble.com/login/oauth/access_token", {
+      "https://dribbble.com/oauth/token", {
         headers: {
           Accept: 'application/json',
           "User-Agent": userAgent
@@ -43,11 +43,11 @@ var getAccessToken = function (query) {
         }
       });
   } catch (err) {
-    throw _.extend(new Error("Failed to complete OAuth handshake with dribbble. " + err.message),
+    throw _.extend(new Error("Failed to complete OAuth handshake with Dribbble. " + err.message),
                    {response: err.response});
   }
   if (response.data.error) { // if the http response was a json object with an error attribute
-    throw new Error("Failed to complete OAuth handshake with dribbble. " + response.data.error);
+    throw new Error("Failed to complete OAuth handshake with Dribbble. " + response.data.error);
   } else {
     return response.data.access_token;
   }
@@ -56,7 +56,7 @@ var getAccessToken = function (query) {
 var getIdentity = function (accessToken) {
   try {
     return HTTP.get(
-      "https://api.dribbble.com/user", {
+      "https://api.dribbble.com/v1/user", {
         headers: {"User-Agent": userAgent}, // http://developer.dribbble.com/v3/#user-agent-required
         params: {access_token: accessToken}
       }).data;
