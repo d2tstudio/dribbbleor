@@ -9,8 +9,7 @@ OAuth.registerService('dribbble', 2, null, function(query) {
     serviceData: {
       id: identity.id,
       accessToken: OAuth.sealSecret(accessToken),
-      email: identity.email,
-      username: identity.login,
+      username: identity.username,
       bio: identity.bio,
       avatar: identity.avatar_url,
       location: identity.location
