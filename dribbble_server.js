@@ -10,7 +10,10 @@ OAuth.registerService('dribbble', 2, null, function(query) {
       id: identity.id,
       accessToken: OAuth.sealSecret(accessToken),
       email: identity.email,
-      username: identity.login
+      username: identity.login,
+      bio: identity.bio,
+      avatar: identity.avatar_url,
+      location: identity.location
     },
     options: {profile: {name: identity.name}}
   };
